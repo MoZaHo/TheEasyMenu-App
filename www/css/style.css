@@ -1,0 +1,83 @@
+/* Empty. Add your own CSS if you like */
+
+.login {
+    background: url(../img/login.jpg) #ffffff;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+.login_clear {
+    background : transparent;
+}
+
+.table-header div {
+    background : #444444;
+    color : #ffffff;
+    font-weight: 800;
+}
+
+.table-header-light div {
+    background : #33CD5F;
+    color : #ffffff;
+    font-weight: 800;
+}
+
+.tiprow {
+    border-top : 2px solid #000;
+    border-bottom : 1px solid #000;
+    background : #F8F8F8;
+}
+
+.totalrow {
+    background : #444444;
+    color : #fff;
+    font-weight: 900;
+    font-size: 1.5em;
+}
+
+.myrow {
+    background : #F8F8F8;
+    font-weight : bold;
+}
+
+.brdbtm {
+    border-bottom : 1px solid gray;
+}
+
+.nopadding {
+    padding : 0px;
+}
+
+.profile-item {
+  text-align: center;
+}
+
+.profile-picture {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 3px;
+  border-radius: 100%;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.profile-picture img {
+  width: 100px;
+  border-radius: 100%;
+}
+
+.profile-name {
+  padding-top: 20px;
+  font-size: large !important;
+  font-weight: bold !important;
+  text-transform: capitalize;
+}
+
+.selected {
+    background : #BEEB9F;
+}

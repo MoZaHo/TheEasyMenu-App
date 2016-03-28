@@ -1,0 +1,26 @@
+{
+  "name": "TheEasyMenu",
+  "version": "0.0.0",
+  "authors": [
+    "Morne <morne@crio.co.za>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "www/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "1.4.3",
+    "angular-sanitize": "1.4.3",
+    "angular-ui-router": "0.2.13",
+    "ionic-platform-web-client": "~0.4.0",
+    "ionic": "driftyco/ionic-bower#1.2.4"
+  },
+  "devDependencies": {
+    "ionic-platform-web-client": "~0.5.0"
+  }
+}

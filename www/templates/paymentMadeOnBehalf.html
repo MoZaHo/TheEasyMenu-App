@@ -1,0 +1,38 @@
+<ion-modal-view>
+  	<ion-header-bar>
+    	<h3 class="title"></h3>
+    	<div class="buttons">
+      		<button class="button button-clear" ng-click="closePaymentMadeOnBehalfModal()">Close</button>
+    	</div>
+  	</ion-header-bar>
+  	<ion-content>
+  	
+  		<div class="row">
+  			<div class="col">
+  				<div class="card">
+  					<div class="item item-divider">
+    					Now this is a real pal...
+  					</div>
+  					<div class="item item-body item-text-wrap">
+    					<div class="list card" >
+		  					<ion-item class="profile-item">
+		         				<div class="profile-picture big-profile-picture">
+		            				<img src="{{ onbehalfof.image }}" />
+		          				</div>
+		          				<br/>
+		          				<div class="profile-info">{{ onbehalfof.name }} has just paid your bill<br/>How about buying them a beer next time?</div>
+		        			</ion-item>
+		  				</div>
+  					</div>
+				</div>
+  			</div>
+  		</div>
+  		
+  	</ion-content>
+  	
+  	<ion-footer-bar>
+    	<div class="buttons button-bar">
+      		
+    	</div>
+  	</ion-footer-bar>
+</ion-modal-view>

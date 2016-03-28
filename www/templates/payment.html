@@ -1,0 +1,59 @@
+<ion-modal-view>
+  	<ion-header-bar>
+    	<h3 class="title">Make Payment</h3>
+    	<div class="buttons">
+      		<button class="button button-clear" ng-click="closePaymentModal()">Close</button>
+    	</div>
+  	</ion-header-bar>
+  	<ion-content>
+  	
+  		<div class="row">
+  			<div class="col">
+  				<div class="list card">
+
+  					<div class="item item-avatar">
+    					<img ng-src="{{ user.image }}">
+    					<h2>{{ user.name }}</h2>
+    					<h1>R {{ bill.mytotal }}</h1>
+  					</div>
+  					
+  				</div>
+  			</div>
+  		</div>
+  		
+  		<div class="row">
+  			<div class="col">
+  				Be a pal and pay for your friends...
+  			</div>
+  		</div>
+	
+  		<div class="row" ng-repeat="(k1,r) in bill.others">
+  		
+  			<div class="col col-50" ng-repeat="(k2,c) in bill.others[k1]" ng-model="bill.others[k1][k2].selected" ng-click="bill.others[k1][k2].selected = !bill.others[k1][k2].selected;AddToTotal()" ng-init="bill.others[k1][k2].selected = false">
+  				<div class="list card" >
+  					<ion-item class="profile-item" ng-class="{selected : bill.others[k1][k2].selected}"  >
+         				<div class="profile-picture big-profile-picture">
+            				<img src="{{ c.image }}">
+          				</div>
+          				<h2 class="profile-name dark">{{ c.name.split(' ')[0] }}</h2>
+          				<div class="profile-info">R {{ c.amount }}</div>
+        			</ion-item>
+  				</div>
+  			</div>
+  			
+  		</div>
+
+  		<div class="row">
+  			<div class="col">
+  				<button class="button button-calm button-block button-large" ng-click="PlacePayment()">Pay R {{ bill.total }}</button>
+  			</div>
+  		</div>
+  		
+  	</ion-content>
+  	
+  	<ion-footer-bar>
+    	<div class="buttons button-bar">
+      		
+    	</div>
+  	</ion-footer-bar>
+</ion-modal-view>

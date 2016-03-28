@@ -1,0 +1,62 @@
+<ion-modal-view>
+  	<ion-header-bar>
+    	<h1 class="title"></h1>
+    	<div class="buttons">
+      		<button class="button button-clear" ng-click="closeLogin()">Close</button>
+    	</div>
+  	</ion-header-bar>
+  	<ion-content>
+  	
+  		<div class="row">
+  			<div class="col col-center text-center"><h4>{{ menuitem.details.item }}</h4></div>
+  		</div>
+  		
+  		<div class="row">
+  			<div class="col col-center text-center">
+  				<img ng-src="{{ menuitem.details.image }}">
+  			</div>
+  		</div>
+  		
+  		<div class="row">
+  			<div class="col col-center text-center">
+  				{{ menuitem.details.item }}
+  			</div>
+  		</div>
+  		
+  		<div class="row table-header">
+  			<div class="col ">
+  				Description
+  			</div>
+  			<div class="col">
+  				Price
+  			</div>
+  		</div>
+  		<div ng-repeat="mu in menuitem.units" class="row">
+  			<div class="col">
+      			{{ mu.name }}
+			</div>
+			<div class="col">
+	      		{{ mu.price }}
+  			</div>
+  		</div>
+  		
+  		<div class="row">
+  			<div class="col col-center text-center" ng-repeat="mu in menuitem.units">
+  				<button class="button button-block button-dark" ng-click="orderitem.unitcount[mu.id] = orderitem.unitcount[mu.id] + 1;" ng-init="orderitem.unitcount[mu.id] = 0" on-hold="orderitem.unitcount[mu.id] = 0">{{ mu.name }}<br/><span>{{ orderitem.unitcount[mu.id] }}</span></button>
+  			</div>
+  		</div>
+  		
+  		<div class="row">
+  			<div class="col col-center text-center">
+  				Hold button to reset
+  			</div>
+  		</div>
+  		
+  	</ion-content>
+  	
+  	<ion-footer-bar>
+    	<div class="buttons button-bar">
+      		<button class="button button-energized" ng-click="PlaceOrder()">Order</button>
+    	</div>
+  	</ion-footer-bar>
+</ion-modal-view>

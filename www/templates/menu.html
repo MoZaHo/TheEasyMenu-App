@@ -1,0 +1,49 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  	<ion-side-menu-content>
+    	<ion-nav-bar class="bar-stable">
+      		<ion-nav-back-button>
+			</ion-nav-back-button>
+
+  			<ion-nav-buttons side="right">
+     			<button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+     				<span class="badge badge-assertive" ng-if="requests.length > 0">requests</span>
+      			</button>
+  			</ion-nav-buttons>
+ 		</ion-nav-bar>
+    	<ion-nav-view name="menuContent"></ion-nav-view>
+	</ion-side-menu-content>
+
+  	<ion-side-menu side="right">
+    	<ion-header-bar class="bar-stable">
+      		<h1 class="title">Menu</h1>
+    	</ion-header-bar>
+    	<ion-content>
+      		<ion-list>
+      			<ion-item menu-close ng-if="user.id > 0 && requests.length > 0 && sessioninfo.session == 1" ng-click="ViewRequests()" >
+          			Requests <span class="badge badge-assertive" ng-if="requests.length > 0">{{ requests.length }}</span>
+        		</ion-item>
+        		<ion-item menu-close ng-click="logout()" ng-if="user.id > 0">
+          			Logout
+        		</ion-item>
+        		<ion-item menu-close ng-click="login()" ng-if="user.id <= 0">
+          			Login
+        		</ion-item>
+        		<ion-item menu-close href="#/app/dashboard">
+          			Dashboard
+        		</ion-item>
+        		<ion-item menu-close href="#/app/search">
+          			Search
+        		</ion-item>
+        		<ion-item menu-close href="#/app/settings">
+    				Settings      
+        		</ion-item>
+        		<ion-item menu-close href="#/app/profile" ng-if="user.id > 0">
+          			{{ user.name }} {{ user.surname }}
+        		</ion-item>
+        		<ion-item ng-if="user.id > 0">
+        			<img ng-src="{{ user.image }}" width="100%;">
+        		</ion-item>
+      		</ion-list>
+    	</ion-content>
+  	</ion-side-menu>
+</ion-side-menus>

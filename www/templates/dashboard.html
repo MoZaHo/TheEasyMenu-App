@@ -1,0 +1,32 @@
+<ion-view view-title="The Easy Menu">
+	<ion-content>
+		<ion-refresher pulling-text="Pull to refresh..." on-refresh="GetActiveSessions()"></ion-refresher>
+  		
+  		<!-- Display list of active sessions -->
+  		<div class="row">
+  			<div class="col">
+		  		<h3 ng-if="sessions.length > 0">Active Session</h3>
+		  		<ion-item ng-repeat="s in sessions">
+		  			<button class="button button-block button-dark" ng-click="GoToSession(s)">{{ s.restaurant.name }}</button>
+		  		</ion-item>
+		  	</div>
+		</div>
+  		
+  		<div class="row" ng-if="user.id > 0">
+  			<div class="col">
+  				<button class="button button-block button-positive" ng-click="Checkin()">
+  					Checkin
+				</button>
+			</div>
+		</div>
+		
+		<div class="row" ng-if="user.id <= 0">
+			<div class="col">
+  				<button class="button button-block button-positive" ng-click="login()">
+  					Login
+				</button>
+			</div>
+		</div>
+  			
+  	</ion-content>
+</ion-view>

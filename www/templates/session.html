@@ -1,0 +1,158 @@
+<ion-view hide-back-button="false">
+  	<ion-tabs class="tabs-stable tabs-icon-bptt">
+
+  		<ion-tab title="Menu" icon-on="ion-fork" icon-off="ion-fork">
+  			<ion-nav-view>
+    			<ion-content>
+    				
+    				<div ng-show="view == 0">
+	    				<img src="" class="full-image">
+	    				<button class="button button-block" ng-click="view = 1">Drinks</button>
+	    				<button class="button button-block" ng-click="view = 2">Meals</button>
+	    				<button class="button button-block" ng-click="view = 3">Deserts</button>
+    				</div>
+    				
+    				<button ng-click="mockdata()">Mock</button>
+
+    				<div ng-show="sessioninfo.session == 0">
+    					Awaiting Acceptance...
+    				</div>
+    				
+    				<div ng-show="view > 0">
+    					<div class="col"><button class="button button-block" ng-click="view = 0">Back</button></div>
+    				</div>
+    				
+    				<div class="row" ng-if="view == 1">
+    					<div class="col">
+	    					<div class="list">
+    	    					<a ng-click="OpenMenuItem({{ item }})" ng-repeat="item in menu" class="item">
+        	  						{{ item.details.item }}
+        						</a>
+      						</div>
+      					</div>
+    				</div>
+    				
+    				<div class="row" ng-if="view == 2">
+    					Meals
+    				</div>
+    				
+    				<div class="row" ng-if="view == 3">
+    					Deserts
+    				</div>
+    							
+    			</ion-content>
+    		</ion-nav-view>
+  		</ion-tab>
+
+  		<ion-tab title="My Order" icon-on="ion-compose" icon-off="ion-compose" ng-if="sessioninfo.session == 1">
+  			<ion-nav-view>
+	    		<ion-content>
+			  		<div>
+				  		<div class="row">
+				  			<div class="col">Waitor</div>
+				  			<div class="col">{{ myorder.waitron }}</div>
+				  		</div>
+				  		<div class="row">
+				  			<div class="col">Started</div>
+				  			<div class="col">{{ myorder.started }}</div>
+				  		</div>
+				  		<div class="row">
+				  			<div class="col">Invoice #</div>
+				  			<div class="col">{{ myorder.invoice }}</div>
+				  		</div>
+			  		</div>
+			  		<div>
+			  			<div class="row table-header-light">
+			  				<div class="col">Amt</div>
+			  				<div class="col">Price</div>
+			  				<div class="col">Total</div>
+			  			</div>
+			  			<div ng-repeat="i in myorder.details">
+			  				<div class="row table-header">
+				  				<div class="col">
+				  					{{ i.menuitem.menu.item }} ( {{ i.menuitem.saleunit.name }} )
+				  				</div>
+				  			</div>
+				  			<div class="row">
+								<div class="col">{{ i.amount }}</div>
+								<div class="col">R {{ i.menuitem.price }}</div>
+								<div class="col">R {{ i.amount * i.menuitem.price }}</div>
+			  				</div>
+			  			</div>
+			  			<div class="row table-header-light">
+							<div class="col"></div>
+							<div class="col">Total</div>
+							<div class="col">R {{ myorder.totals.amount }}</div>
+			  			</div>
+			  		</div>
+			  	</ion-content>
+		  	</ion-nav-view>
+  		</ion-tab>
+
+  		<ion-tab title="My Table" icon-on="ion-person-stalker" icon-off="ion-person-stalker" ng-if="sessioninfo.session == 1">
+    		<!-- Tab 3 content -->
+    		<ion-nav-view>
+	    		<ion-content>
+					
+					<div class="row myrow brdbtm">
+  						<h3>My Table</h3>
+					</div>
+					
+					<div ng-repeat="o in table.user">
+						<div class="row" ng-class="{myrow : o.id == user.id}">
+							<div class="col col-50">
+								{{ o.name }}
+							</div>
+							<div class="col">
+								{{ o.items }}
+							</div>
+							<div class="col">
+								R {{ o.amount }}
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col col-50">
+							Total
+						</div>
+						<div class="col">
+							{{ table.items }}
+						</div>
+						<div class="col">
+							R {{ table.total }}
+						</div>
+					</div>
+					<div class="row tiprow">
+						<div class="col col-50">
+							Gratuity / Tip
+						</div>
+						<div class="col">
+							10 %
+						</div>
+						<div class="col">
+							R {{ table.tip }}
+						</div>
+					</div>
+					<div class="row totalrow">
+						<div class="col col-50">
+						</div>
+						<div class="col">
+						</div>
+						<div class="col">
+							R {{ table.totalPlusTip }}
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<button class="button button-block button-balanced" ng-click="showPaymentModal()">Pay Bill</button>
+						</div>
+					</div>					
+					
+	    		</ion-content>
+	    	</ion-nav-view>
+  		</ion-tab>
+
+	</ion-tabs>
+  	
+</ion-view>

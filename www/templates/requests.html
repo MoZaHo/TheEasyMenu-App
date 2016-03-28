@@ -1,0 +1,30 @@
+<ion-modal-view>
+  	<ion-header-bar>
+    	<h1 class="title">Requests</h1>
+    	<div class="buttons">
+      		<button class="button button-clear" ng-click="closeRequests()">Close</button>
+    	</div>
+  	</ion-header-bar>
+  	<ion-content>
+
+		<div class="list card" ng-repeat="u in requests">
+
+			<div class="text-center">
+				<h2>{{ u.name }}</h2>
+			</div>
+			
+			<div class="item item-body">
+				<img class="full-image" src="{{ u.image }}">
+			</div>
+			
+			<div class="item item-footer">
+				<div class="button-bar">
+  					<a class="button button-assertive" ng-click="ActionRequest(0,u.id)">Reject</a>
+  					<a class="button button-balanced" ng-click="ActionRequest(1,u.id)">Accept</a>
+				</div>
+			</div>
+			
+		</div>
+  		
+  	</ion-content>
+</ion-modal-view>
